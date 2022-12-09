@@ -10,13 +10,17 @@ function Home() {
         <div className="container mx-auto mt-[-128px]">
           <div className="lg:py-6 h-screen">
             <div className="flex border border-grey rounded shadow-lg h-full">
-              <div className="w-1/3 border hidden md:flex flex-col ">
+              <div className="w-full lg:w-1/3 border flex flex-col ">
                 <div className="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
-                  <div>
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src="https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k="
-                    />
+                  <div className="flex ">
+                    <span>
+                      {" "}
+                      <img
+                        className="w-10 h-10 rounded-full"
+                        src="https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k="
+                      />
+                    </span>
+                    <span className="m-2 text-white text-lg">Whtasapp bot</span>
                   </div>
 
                   <div className="flex">
@@ -72,7 +76,7 @@ function Home() {
                   />
                 </div>
 
-                <div className="bg-grey-lighter flex-1 overflow-auto">
+                <div className="bg-grey-lighter flex-1 py-2 overflow-auto">
                   {chatheads.map((item) => (
                     <div
                       key={item.id}
@@ -101,7 +105,7 @@ function Home() {
                 </div>
               </div>
 
-              <div className="sm:w-full lg:w-2/3 border flex flex-col">
+              <div className="  lg:w-2/3 border  hidden md:flex flex-col">
                 <div className="py-2 px-3 bg-grey-lighter flex flex-row justify-between items-center">
                   <div className="flex items-center">
                     <div>
@@ -111,8 +115,10 @@ function Home() {
                       />
                     </div>
                     <div className="ml-4">
-                      <p className="text-grey-darkest">Rahil</p>
-                      <p className="text-grey-darker text-xs mt-1">online</p>
+                      <p className="text-white text-lg">Rahil</p>
+                      <p className="text-grey-darker text-xs mt-1 text-gray-100">
+                        online
+                      </p>
                     </div>
                   </div>
 
