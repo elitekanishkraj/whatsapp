@@ -16,10 +16,13 @@ function Home() {
     <>
       <div className=" h-screen">
         <div className="flex border border-grey rounded shadow-lg h-full">
-          <div className="hidden lg:block md:block">
+          <div>
             <SideNav indexTab={indexTab} />
           </div>
-          <div className="w-full lg:w-1/3 md:w-1/3 border flex flex-col ">
+          {/* <div className="lg:hidden md:hidden fixed bottom-0 left-0 right-0">
+            <SideNav />
+          </div> */}
+          <div className="mb-[10vh] md:mb-0 md:ml-[5vw] w-full lg:w-1/3 md:w-1/3 border flex flex-col ">
             {show === 0 ? <AvatarList /> : ""}
             {show === 1 ? <Group /> : ""}
             {show === 2 ? <Setting /> : ""}
