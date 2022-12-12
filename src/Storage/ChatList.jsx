@@ -5,6 +5,7 @@ export const chatheads = [
     image:
       "https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k=",
     time: "12:24am",
+    link: "/chat",
   },
   {
     title: "Shekhar",
