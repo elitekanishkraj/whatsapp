@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Chat = () => {
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const res = await fetch("https://wp.codestacklabs.com/chat_data");
+      console.log("res", res);
+      const resData = await res.json();
+      console.log("Data", resData);
+      setData(resData);
+    } catch (error) {}
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <div className=" flex flex-col">
       <div className=" px-3 bg-grey-lighter flex flex-row justify-between items-center border-b-2">
