@@ -9,8 +9,10 @@ const Chat = () => {
       console.log("res", res);
       const resData = await res.json();
       console.log("Data", resData);
-      setData(resData);
-    } catch (error) {}
+      setData(resData.chat_data);
+    } catch (error) {
+      console.log('err',error)
+    }
   };
   useEffect(() => {
     getData();
@@ -78,72 +80,6 @@ const Chat = () => {
       </div>
 
       <div className="max-h-[70vh] flex-1 overflow-auto bg-[#ffffff]">
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
-
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
-        <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" />
-            </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
-          </div>
-          <div className="chat-bubble">You were the Chosen One!</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
         <div className="chat chat-end">
           <div className="chat-image avatar">
             <div className="w-10 rounded-full">
@@ -154,9 +90,24 @@ const Chat = () => {
             Anakin
             <time className="text-xs opacity-50">12:46</time>
           </div>
-          <div className="chat-bubble">I hate you!</div>
+          <div className="chat-bubble">Hey There!</div>
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
+        {data.map((item) => (
+          <div className="chat chat-start">
+          <div className="chat-image avatar">
+            <div className="w-10 rounded-full">
+              <img src="https://placeimg.com/192/192/people" />
+            </div>
+          </div>
+          <div className="chat-header">
+            Obi-Wan Kenobi
+            <time className="text-xs opacity-50">12:45</time>
+          </div>
+          <div className="chat-bubble">{item.msg}</div>
+          <div className="chat-footer opacity-50">Delivered</div>
+        </div>
+        ))}
       </div>
 
       <div className="bg-grey-lighter px-4 py-4 flex items-center fixed bottom-0 right-0 left-[-2%] md:left-[38%] lg:left-[36%]">
