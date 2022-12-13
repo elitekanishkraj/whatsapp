@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import GlobalContext from "../Context/GlobalContext";
 
-const AvatarList = (props) => {
+const AvatarList = () => {
   const { users, setNumber } = useContext(GlobalContext);
 
   const img =

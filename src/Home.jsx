@@ -1,13 +1,12 @@
 import React, { useContext, useState } from "react";
 import AvatarList from "./Components/AvatarList";
 import Chat from "./Components/Chat";
-import { BASE_URL } from "./Components/Constant/api";
 import Group from "./Components/Group";
 import SideNav from "./Components/Header/SideNav";
 import Setting from "./Components/Setting";
 import GlobalContext from "./Context/GlobalContext";
 
-function Home(props) {
+function Home() {
   const [show, setShow] = useState(0);
 
   const { setNumber, users, chatData } = useContext(GlobalContext);

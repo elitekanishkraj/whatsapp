@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../Context/GlobalContext";
 import { BASE_URL } from "./Constant/api";
 
-const Chat = (props) => {
+const Chat = () => {
   const { chatData } = useContext(GlobalContext);
 
   return (
