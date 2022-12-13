@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL } from "./Constant/api";
+import React, { useContext, useEffect, useState } from "react";
+import GlobalContext from "../Context/GlobalContext";
 
-const Chat = ({chatData}) => {
- 
-  
+const Chat = (props) => {
+  const { chatData } = useContext(GlobalContext);
+
   return (
     <div className=" flex flex-col">
       <div className=" px-3 bg-grey-lighter flex flex-row justify-between items-center border-b-2">
@@ -73,20 +73,20 @@ const Chat = ({chatData}) => {
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
-          
+
           <div className="chat-bubble">Hey There!</div>
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
         {chatData.map((item) => (
           <div className="chat chat-start">
-          <div className="chat-image avatar">
-            <div className="w-10 rounded-full">
-              <img src="https://placeimg.com/192/192/people" />
+            <div className="chat-image avatar">
+              <div className="w-10 rounded-full">
+                <img src="https://placeimg.com/192/192/people" />
+              </div>
             </div>
+            <div className="chat-bubble">{item.msg}</div>
+            <div className="chat-footer opacity-50">Delivered</div>
           </div>
-          <div className="chat-bubble">{item.msg}</div>
-          <div className="chat-footer opacity-50">Delivered</div>
-        </div>
         ))}
       </div>
 
