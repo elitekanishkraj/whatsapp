@@ -5,8 +5,16 @@ import { BASE_URL } from "./Constant/api";
 
 const Chat = () => {
   const { chatData, number, getChatData } = useContext(GlobalContext);
-
+  const [message, setMessage] = useState()
   console.log("dxsedgz", number);
+
+  const SendMessage = async () => {
+    const res = await fetch(`${BASE_URL}/send_message/${message}/${number}`)
+    const resData = await res.json()
+    console.log('re', resData)
+    setMessage('')
+    getChatData()
+  }
 
   return (
     <div className=" flex flex-col">
@@ -85,7 +93,7 @@ const Chat = () => {
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
         {chatData.map((item) => (
-          <div key={item.id} className="chat chat-start px-5">
+          <div key={item.id} className={item.msg_status !== 'outgoing' ? "chat chat-start px-5" : "chat chat-end px-5"}>
             {item.msg_type === "text" && (
               <>
                 <div className="chat-image avatar">
@@ -151,9 +159,9 @@ const Chat = () => {
           </svg>
         </div>
         <div className="flex-1 mx-4">
-          <input className="w-full border rounded-md px-2 py-2" type="text" />
+          <input value={message} onChange={(e) =>setMessage(e.target.value)} className="w-full border rounded-md px-2 py-2" type="text" />
         </div>
-        <div>
+        <div onClick={() => SendMessage()} >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
