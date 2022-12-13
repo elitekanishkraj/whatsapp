@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { chatheads } from "../Storage/ChatList";
+import React, { useContext } from "react";
 
-const AvatarList = ({users, setNumber}) => {
-  
+import GlobalContext from "../Context/GlobalContext";
 
-  const img = 'https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k='
+const AvatarList = (props) => {
+  const { users, setNumber } = useContext(GlobalContext);
 
- 
+  const img =
+    "https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k=";
+
   return (
     <>
       <div className="py-5 px-5 font-extrabold text-lg">Whatsapp bot</div>
@@ -22,22 +22,22 @@ const AvatarList = ({users, setNumber}) => {
 
       <div className="bg-grey-lighter flex-1 py-2 overflow-auto">
         {users.map((item, id) => (
-         <div
-         key={id}
-         onClick={() => setNumber(item)}
-         className="px-3 py-2 flex items-center bg-grey-light cursor-pointer"
-       >
-         <div>
-           <img className="h-12 w-12 rounded-full" src={img} />
-         </div>
-         <div className="ml-4 flex-1 border-b border-grey-lighter py-4">
-           <div className="flex items-bottom justify-between">
-             <p className="text-grey-darkest">{item}</p>
-             {/* <p className="text-xs text-grey-darkest"> {item.time} </p> */}
-           </div>
-           {/* <p className="text-grey-dark mt-1 text-sm">{item.chat}</p> */}
-         </div>
-       </div>
+          <div
+            key={id}
+            onClick={() => setNumber(item)}
+            className="px-3 py-2 flex items-center bg-grey-light cursor-pointer"
+          >
+            <div>
+              <img className="h-12 w-12 rounded-full" src={img} />
+            </div>
+            <div className="ml-4 flex-1 border-b border-grey-lighter py-4">
+              <div className="flex items-bottom justify-between">
+                <p className="text-grey-darkest">{item}</p>
+                {/* <p className="text-xs text-grey-darkest"> {item.time} </p> */}
+              </div>
+              {/* <p className="text-grey-dark mt-1 text-sm">{item.chat}</p> */}
+            </div>
+          </div>
         ))}
       </div>
     </>
