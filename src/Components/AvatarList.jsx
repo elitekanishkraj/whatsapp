@@ -1,16 +1,26 @@
 import React, { useContext } from "react";
+import { plane, refresh } from "../assets/icons/AllIcon";
 
 import GlobalContext from "../Context/GlobalContext";
 
 const AvatarList = () => {
-  const { users, setNumber } = useContext(GlobalContext);
+  const { users, setNumber, getTargetedUsers } = useContext(GlobalContext);
 
   const img =
     "https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k=";
   console.log("uuu", users);
   return (
     <>
-      <div className="py-5 px-5 font-extrabold text-lg">Whatsapp bot</div>
+      <div className="py-5 px-5 font-extrabold text-lg flex justify-between">
+        <div>Whatsapp bot</div>
+        <div
+          className="cursor-pointer rotate-90 "
+          onClick={() => getTargetedUsers()}
+        >
+          {" "}
+          {refresh}
+        </div>
+      </div>
 
       <div className=" px-5 bg-grey-lightest py-3">
         <input

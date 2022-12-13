@@ -48,6 +48,7 @@ const GlobalState = (props) => {
           chatData: chatData,
           userNum: userNum,
           getChatData: getChatData,
+          getTargetedUsers: getTargetedUsers,
         }}
       >
         {props.children}
