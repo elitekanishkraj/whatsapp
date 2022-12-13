@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
+import { refresh } from "../assets/icons/AllIcon";
 import GlobalContext from "../Context/GlobalContext";
 import { BASE_URL } from "./Constant/api";
 
 const Chat = () => {
-  const { chatData } = useContext(GlobalContext);
+  const { chatData, number, getChatData } = useContext(GlobalContext);
+
+  console.log("dxsedgz", number);
 
   return (
     <div className=" flex flex-col">
@@ -16,12 +19,15 @@ const Chat = () => {
             />
           </div>
           <div className="ml-4">
-            <p className=" text-lg">Rahil</p>
-            <p className="text-grey-darker text-xs mt-1 ">online</p>
+            <p className=" text-lg">{number}</p>
+            {/* <p className="text-grey-darker text-xs mt-1 ">online</p> */}
           </div>
         </div>
 
         <div className="flex">
+          <div className="px-5 cursor-pointer" onClick={() => getChatData()}>
+            {refresh}
+          </div>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -79,28 +85,53 @@ const Chat = () => {
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
         {chatData.map((item) => (
-          <div className="chat chat-start">
-            {item.msg_type === 'text' && <>
-            <div className="chat-image avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/192/192/people" />
-              </div>
-            </div>
-            <div className="chat-bubble">{item.msg}</div>
-            <div className="chat-footer opacity-50">Delivered</div>
-            </>}
+          <div key={item.id} className="chat chat-start px-5">
+            {item.msg_type === "text" && (
+              <>
+                <div className="chat-image avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" />
+                  </div>
+                </div>
+                <div className="chat-bubble">{item.msg}</div>
+                <div className="chat-footer opacity-50">Delivered</div>
+              </>
+            )}
 
-            {item.msg_type === 'img' && <>
-            <div className="chat-image avatar">
-              <div className="w-10 rounded-full">
-                <img  src="https://placeimg.com/192/192/people" />
-              </div>
-            </div>
-            <div >
-            <img className="w-20" src={`${BASE_URL}/media/${item.img_url.substring(37)}`} /> </div>
-            <div className="chat-footer opacity-50">Delivered</div>
-            </>}
-
+            {item.msg_type === "img" && (
+              <>
+                <div className="chat-image avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" />
+                  </div>
+                </div>
+                <div>
+                  <img
+                    className="w-40 rounded-md"
+                    src={`${BASE_URL}/media/${item.img_url.substring(37)}`}
+                  />{" "}
+                </div>
+                <div className="chat-footer opacity-50">Delivered</div>
+              </>
+            )}
+            {item.msg_type === "video" && (
+              <>
+                <div className="chat-image avatar">
+                  <div className="w-10 rounded-full">
+                    <img src="https://placeimg.com/192/192/people" />
+                  </div>
+                </div>
+                <div>
+                  <video
+                    className="w-40 rounded-md"
+                    controls
+                    type="video/mp4"
+                    src={`${BASE_URL}/media/${item.video_url.substring(37)}`}
+                  ></video>
+                </div>
+                <div className="chat-footer opacity-50">Delivered</div>
+              </>
+            )}
           </div>
         ))}
       </div>

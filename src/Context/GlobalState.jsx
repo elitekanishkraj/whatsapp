@@ -6,6 +6,7 @@ const GlobalState = (props) => {
   const [users, setUsers] = useState([]);
   const [number, setNumber] = useState();
   const [chatData, setChatData] = useState([]);
+  const [userNum, setUserNum] = useState(0);
 
   const getTargetedUsers = async () => {
     try {
@@ -14,6 +15,7 @@ const GlobalState = (props) => {
       console.log("res_data", resData);
       setUsers(resData);
       if (!number) getChatData(resData[0]);
+      setNumber(resData[0]);
     } catch (error) {
       console.log("err", error);
     }
@@ -42,7 +44,10 @@ const GlobalState = (props) => {
         value={{
           users: users,
           setNumber: setNumber,
+          number: number,
           chatData: chatData,
+          userNum: userNum,
+          getChatData: getChatData,
         }}
       >
         {props.children}

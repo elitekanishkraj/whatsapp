@@ -7,7 +7,7 @@ const AvatarList = () => {
 
   const img =
     "https://media.istockphoto.com/id/1399611777/photo/portrait-of-a-smiling-little-brown-haired-boy-looking-at-the-camera-happy-kid-with-good.jpg?b=1&s=170667a&w=0&k=20&c=_vhKiD4p9X8X5BBJ5gKiWasG95XFvwVa8nq6Ogbpn9k=";
-
+  console.log("uuu", users);
   return (
     <>
       <div className="py-5 px-5 font-extrabold text-lg">Whatsapp bot</div>

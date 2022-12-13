@@ -9,11 +9,12 @@ import GlobalContext from "./Context/GlobalContext";
 function Home() {
   const [show, setShow] = useState(0);
 
-  const { setNumber, users, chatData } = useContext(GlobalContext);
+  const { setNumber, users, number, chatData } = useContext(GlobalContext);
   const indexTab = (index) => {
     console.log("d", index);
     setShow(index);
   };
+  console.log("szfdzf", number);
 
   return (
     <>
