@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../Context/GlobalContext";
+import { BASE_URL } from "./Constant/api";
 
 const Chat = (props) => {
   const { chatData } = useContext(GlobalContext);
@@ -92,10 +93,11 @@ const Chat = (props) => {
             {item.msg_type === 'img' && <>
             <div className="chat-image avatar">
               <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/192/192/people" />
+                <img  src="https://placeimg.com/192/192/people" />
               </div>
             </div>
-            <div className="chat-bubble">image </div>
+            <div >
+            <img className="w-20" src={`${BASE_URL}/media/${item.img_url.substring(37)}`} /> </div>
             <div className="chat-footer opacity-50">Delivered</div>
             </>}
 
