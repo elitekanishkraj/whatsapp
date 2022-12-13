@@ -79,15 +79,28 @@ const Chat = ({chatData}) => {
         </div>
         {chatData.map((item) => (
           <div className="chat chat-start">
+          {item.msg_type === 'text' && <>
           <div className="chat-image avatar">
             <div className="w-10 rounded-full">
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
           <div className="chat-bubble">{item.msg}</div>
-          <div className="chat-footer opacity-50">Delivered</div>
+          <div className="chat-footer opacity-50">Delivered</div></>}
+
+          {item.msg_type === 'img' && <>
+          <div className="chat-image avatar">
+            <div className="w-10 rounded-full">
+              <img src="https://placeimg.com/192/192/people" />
+            </div>
+          </div>
+          <div className="chat-bubble">image</div>
+          <div className="chat-footer opacity-50">Delivered</div></>}
         </div>
+
         ))}
+        
+        
       </div>
 
       <div className="bg-grey-lighter px-4 py-4 flex items-center fixed bottom-0 right-0 left-[-2%] md:left-[38%] lg:left-[36%]">
