@@ -2,6 +2,7 @@ import React from "react";
 import { heads } from "../../Storage/Sidenavitems";
 
 const SideNav = ({ indexTab }) => {
+  
   return (
     <>
       <ul className="space-y-1 md:bg-white bg-slate-300 flex flex-row md:flex-col fixed left-0 bottom-0 md:top-0 w-[100vw] md:w-auto justify-around border-t border-gray-100 pt-4">

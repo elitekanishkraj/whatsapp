@@ -1,22 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { BASE_URL } from "./Constant/api";
 
-const Chat = () => {
-  const [data, setData] = useState([]);
-
-  const getData = async () => {
-    try {
-      const res = await fetch("https://wp.codestacklabs.com/chat_data");
-      console.log("res", res);
-      const resData = await res.json();
-      console.log("Data", resData);
-      setData(resData.chat_data);
-    } catch (error) {
-      console.log('err',error)
-    }
-  };
-  useEffect(() => {
-    getData();
-  }, []);
+const Chat = ({chatData}) => {
+ 
+  
   return (
     <div className=" flex flex-col">
       <div className=" px-3 bg-grey-lighter flex flex-row justify-between items-center border-b-2">
@@ -86,23 +73,16 @@ const Chat = () => {
               <img src="https://placeimg.com/192/192/people" />
             </div>
           </div>
-          <div className="chat-header">
-            Anakin
-            <time className="text-xs opacity-50">12:46</time>
-          </div>
+          
           <div className="chat-bubble">Hey There!</div>
           <div className="chat-footer opacity-50">Seen at 12:46</div>
         </div>
-        {data.map((item) => (
+        {chatData.map((item) => (
           <div className="chat chat-start">
           <div className="chat-image avatar">
             <div className="w-10 rounded-full">
               <img src="https://placeimg.com/192/192/people" />
             </div>
-          </div>
-          <div className="chat-header">
-            Obi-Wan Kenobi
-            <time className="text-xs opacity-50">12:45</time>
           </div>
           <div className="chat-bubble">{item.msg}</div>
           <div className="chat-footer opacity-50">Delivered</div>
