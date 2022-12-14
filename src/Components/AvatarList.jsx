@@ -34,7 +34,7 @@ const AvatarList = () => {
         {users.map((item, id) => (
           <div
             key={id}
-            onClick={() => setNumber(item.sender_no)}
+            onClick={() => setNumber(item)}
             className="px-3 py-2 flex items-center bg-grey-light cursor-pointer"
           >
             <div>
@@ -42,8 +42,8 @@ const AvatarList = () => {
             </div>
             <div className="ml-4 flex-1 border-b border-grey-lighter py-4">
               <div className="flex items-bottom justify-between">
-                <p className="text-grey-darkest">{item.sender_no}</p>
-                <p className="text-grey-darkest">{item.sender_name}</p>
+                <p className="text-grey-darkest">{item}</p>
+                
                 {/* <p className="text-xs text-grey-darkest"> {item.time} </p> */}
               </div>
               {/* <p className="text-grey-dark mt-1 text-sm">{item.chat}</p> */}
