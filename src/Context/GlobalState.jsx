@@ -14,8 +14,8 @@ const GlobalState = (props) => {
       const resData = await res.json();
       console.log("res_data", resData);
       setUsers(resData);
-      if (!number) getChatData(resData[0]);
-      setNumber(resData[0]);
+      if (!number) getChatData(resData[0]['sender_no']);
+      setNumber(resData[0]['sender_no']);
     } catch (error) {
       console.log("err", error);
     }
