@@ -15,18 +15,20 @@ const GlobalState = (props) => {
       console.log("res_data", resData);
       setUsers(resData);
       if (!number) getChatData(resData[0]);
-      setNumber(resData[0]);
+      setNumber(resData[0]['sender_no']);
     } catch (error) {
       console.log("err", error);
     }
   };
-  const getChatData = async (num) => {
+  const getChatData = async () => {
     try {
-      const res = await fetch(`${BASE_URL}/chat_data/${number ? number : num}`);
+      if(number) {
+      const res = await fetch(`${BASE_URL}/chat_data/${number}`);
       console.log("res", res);
       const resData = await res.json();
       console.log("Data", resData);
       setChatData(resData.chat_data);
+      }
     } catch (error) {
       console.log("err", error);
     }
