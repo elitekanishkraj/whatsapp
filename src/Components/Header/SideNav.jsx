@@ -1,15 +1,25 @@
 import React from "react";
 import { heads } from "../../Storage/Sidenavitems";
+// import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SideNav = ({ indexTab }) => {
+
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    // alert('navigate to')
+    localStorage.removeItem('loginToken');
+    navigate('/login')
+  }
   
   return (
     <>
       <ul className="space-y-1 md:bg-white bg-slate-300 flex flex-row md:flex-col fixed left-0 bottom-0 md:top-0 w-[100vw] md:w-auto justify-around border-t border-gray-100 pt-4">
-        <div class="inline-flex h-16 w-16 items-center justify-center">
+        {/* <div class="inline-flex h-16 w-16 items-center justify-center">
           <span className="block h-10 w-10 rounded-lg bg-gray-200"></span>
-        </div>
-        {heads.map((head, id) => (
+        </div> */}
+        {/* {heads.map((head, id) => (
           <li
             key={head.id}
             onClick={() => indexTab(id)}
@@ -21,15 +31,16 @@ const SideNav = ({ indexTab }) => {
               {head.item}
             </span>
           </li>
-        ))}
+        ))} */}
         <div>
           <button
-            type="submit"
+            onClick={() => handleLogout()}
+            type="button"
             className="group relative flex w-full justify-center rounded-lg px-2 py-1.5 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 mt-2 w-5 opacity-75"
+              className=" w-5 opacity-75"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

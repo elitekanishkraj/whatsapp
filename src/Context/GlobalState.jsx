@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BASE_URL } from "../Components/Constant/api";
+import { API_URL } from "../Components/Constant/api";
 import GlobalContext from "./GlobalContext";
 
 const GlobalState = (props) => {
@@ -10,7 +10,7 @@ const GlobalState = (props) => {
 
   const getTargetedUsers = async () => {
     try {
-      const res = await fetch(`${BASE_URL}/wp_users`);
+      const res = await fetch(`${API_URL}/wp_users`);
       const resData = await res.json();
       console.log("res_data", resData);
       setUsers(resData);
@@ -23,7 +23,7 @@ const GlobalState = (props) => {
   const getChatData = async () => {
     try {
       if(number) {
-      const res = await fetch(`${BASE_URL}/chat_data/${number}`);
+      const res = await fetch(`${API_URL}/chat_data/${number}`);
       console.log("res", res);
       const resData = await res.json();
       console.log("Data", resData);
